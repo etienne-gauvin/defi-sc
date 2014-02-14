@@ -3,4 +3,17 @@
 </head>
 
 <body>
+  <div id="history">
+    {{> history}}
+  </div>
 </body>
+
+<template name="history">
+  <ol class="search-list">
+    {{#each searchList}}
+    <li>
+      <span class="keywords">{{keywords}}</span>
+    </li>
+    {{/each}}
+  </ol>
+</template>
