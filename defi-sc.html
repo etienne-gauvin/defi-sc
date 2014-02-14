@@ -3,12 +3,25 @@
 </head>
 
 <body>
-  <div id="history">
+  <!-- Zone de connexion / recherche -->
+  {{#if isUserConnected}}
+  <div class="search">
+    {{> search}}
+  </div>
+  {{else}}
+  <div class="connect">
+    {{> connect}}
+  </div>
+  {{/if}}
+  
+  <!-- Historique des recherches -->
+  <div class="history">
     {{> history}}
   </div>
 </body>
 
 <template name="history">
+  <h3>History:</h3>
   <ol class="search-list">
     {{#each searchList}}
     <li>
@@ -16,4 +29,16 @@
     </li>
     {{/each}}
   </ol>
+</template>
+
+<template name="search">
+  <h3>Search :</h3>
+  <form>
+    
+  </form>
+</template>
+
+<template name="connect">
+  <h3>Connect :</h3>
+  {{loginButtons}}
 </template>
