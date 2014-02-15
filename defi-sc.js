@@ -94,6 +94,9 @@ if (Meteor.isClient)
 // Serveur
 if (Meteor.isServer)
 {
+  // Liste des streams
+  var streams = [];
+  
   // Client pour l'API Twitter
   var Twit = Meteor.require('twit');
   
@@ -138,12 +141,16 @@ if (Meteor.isServer)
             addResult(reply.statuses[i]);
         } 
       });
-
+      
+      // Si l'utilisateur avait déjà un stream en cours, on l'arrête
+      if (streams[this.userId])
+        streams[this.userId].stop();
+      
       // Stream
-      var stream = T.stream('statuses/filter', {track: params.keywords});
+      streams[this.userId] = T.stream('statuses/filter', {track: params.keywords});
       
       // Pour chaque nouveau tweet, ajout de celui-ci dans la base de données
-      stream.on('tweet', addResult);
+      streams[this.userId].on('tweet', addResult);
     }
   });
 }
