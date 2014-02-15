@@ -19,7 +19,7 @@ if (Meteor.isClient)
   
   // Retourne la liste des dernières recherches
   Template.history.searchList = function() {
-    return SearchHistory.find({}, {sort: {date: -1}, limit: 10});
+    return SearchHistory.find({}, {sort: {date: -1}, limit: 50});
   };
   
   // Retourne la liste des dernières recherches
@@ -143,14 +143,15 @@ if (Meteor.isServer)
       });
       
       // Si l'utilisateur avait déjà un stream en cours, on l'arrête
-      if (streams[this.userId])
-        streams[this.userId].stop();
+      //if (streams[this.userId])
+        //streams[this.userId].stop();
       
       // Stream
-      streams[this.userId] = T.stream('statuses/filter', {track: params.keywords});
+      var stream = T.stream('statuses/filter', {track: params.keywords});
+      streams[this.userId] = stream;
       
       // Pour chaque nouveau tweet, ajout de celui-ci dans la base de données
-      streams[this.userId].on('tweet', addResult);
+      stream.on('tweet', addResult);
     }
   });
 }
