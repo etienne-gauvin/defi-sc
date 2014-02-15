@@ -3,14 +3,15 @@
 </head>
 
 <body>
-  <!-- Zone de connexion / recherche -->
-  {{#if isUserConnected}}
-  <div class="search">
-    {{> search}}
-  </div>
-  {{else}}
+  <!-- Connexion / déconnexion -->
   <div class="connect">
     {{> connect}}
+  </div>
+  
+  <!-- Zone de recherche -->
+  {{#if currentUser}}
+  <div class="search">
+    {{> search}}
   </div>
   {{/if}}
   
@@ -32,13 +33,12 @@
 </template>
 
 <template name="search">
-  <h3>Search :</h3>
   <form>
-    
+    <input type="search" placeholder="#hashtag" autofocus required />
+    <input type="submit" value="Search" />
   </form>
 </template>
 
 <template name="connect">
-  <h3>Connect :</h3>
   {{loginButtons}}
 </template>
