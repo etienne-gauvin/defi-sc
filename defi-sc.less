@@ -75,7 +75,7 @@ html, body {
         transition: 100ms ease-in-out;
         display: block;
         
-        &:hover {
+        &:hover:not(.disabled) {
         font-size: 1.2em;
           color: white;
           cursor: pointer;
@@ -87,12 +87,19 @@ html, body {
 
 .main {
   .results {
+    h2 {
+      margin: 20px;
+    }
+    
     .search-list {
       padding: 0;
       list-style: none;
       
       .result {
         margin: 10px 20px;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #F5F5F5;
       }
     }
   }

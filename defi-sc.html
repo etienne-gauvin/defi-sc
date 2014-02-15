@@ -32,7 +32,7 @@
   <h2>History</h2>
   <ol class="search-list">
     {{#each searchList}}
-    <li class="search" data-id="{{_id}}">
+    <li class="search {{#unless currentUser}}disabled{{/unless}}" data-id="{{_id}}">
       <span class="keywords">{{keywords}}</span>
     </li>
     {{/each}}
@@ -48,7 +48,7 @@
 
 <template name="results">
   {{#if resultList}}
-  <h3>Results:</h3>
+  <h2>Results:</h2>
   <ol class="search-list">
     {{#each resultList}}
     <li class="result">
