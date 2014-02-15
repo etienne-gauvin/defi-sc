@@ -1,0 +1,120 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  
+  font-family: "Droid Sans", sans-serif;
+  font-size: 18px;
+}
+
+.aside, .main {
+}
+
+.aside {
+  background-color: #222;
+  box-shadow: 0px 0 6px rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 10px 0;
+  
+  .connect {
+    padding: 10px 20px;
+    height: 32px;
+  }
+  
+  .search {
+    .search-form {
+      padding: 10px 20px;
+      
+      input[type="search"] {
+        border: 0;
+        padding: 4px 8px;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid rgb(27, 30, 45);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      
+      input[type="submit"] {
+        margin-top: 4px;
+        cursor: pointer;
+        display: block;
+        padding: 4px 8px;
+        font-size: 80%;
+        line-height: 1.5;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.5);
+        background-color: rgb(135, 144, 180);
+        background-image: linear-gradient(to bottom, rgb(165, 172, 201), rgb(89, 101, 149));
+        background-repeat: repeat-x;
+        border-radius: 4px;
+        border: 1px solid rgb(27, 30, 45);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+  
+  .history {
+    padding: 10px 20px;
+    
+    h2 {
+      font-size: 1em;
+      color: rgb(135, 144, 180);
+      text-align: center;
+      margin: 10px 0;
+    }
+    
+    .search-list {
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      
+      .search {
+        line-height: 28px;
+        font-size: 18px;
+        color: #AAA;
+        transition: 100ms ease-in-out;
+        display: block;
+        
+        &:hover {
+        font-size: 1.2em;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  .results {
+    .search-list {
+      padding: 0;
+      list-style: none;
+      
+      .result {
+        margin: 10px 20px;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1023px)
+{
+  .aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+  }
+
+  .main {
+    margin-left: 20%;
+  }
+}
+
+/** Petits écrans **/
+@media (max-width: 1023px)
+{
+}
