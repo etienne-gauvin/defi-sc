@@ -17,6 +17,6 @@ if (Meteor.isServer)
   {
     // Insertion d'une valeur d'exemple si l'historique est vide
     if (SearchHistory.find().count() === 0)
-      SearchHistory.insert({keywords: "#foobar", date: new Date});
+      SearchHistory.insert({keywords: "#foobar", date: new Date, user: {}});
   });
 }
