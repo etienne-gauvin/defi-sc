@@ -5,7 +5,7 @@ SearchHistory = new Meteor.Collection("history");
 if (Meteor.isClient)
 {
   Template.history.searchList = function() {
-    return SearchHistory.find({}, {sort: {date: -1}});
+    return SearchHistory.find({}, {sort: {date: -1}, limit: 10});
   };
   
   Template.search.events({
