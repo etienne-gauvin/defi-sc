@@ -16,9 +16,15 @@ if (Meteor.isClient)
   // On efface les données enregistrées si le serveur est redémarré
   Session.set('keywords', null);
   
+  
   // Retourne la liste des dernières recherches
   Template.history.searchList = function() {
     return SearchHistory.find({}, {sort: {date: -1}, limit: 10});
+  };
+  
+  // Retourne la liste des dernières recherches
+  Template.results.currentKeywords = function() {
+    return Session.get('keywords');
   };
   
   // Retourne les derniers résultats de la recherche
