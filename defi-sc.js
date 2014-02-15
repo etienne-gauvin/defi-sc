@@ -1,3 +1,5 @@
+// Client pour l'API Twitter
+var Twit = Meteor.require('twit');
 
 // Historique des recherches
 SearchHistory = new Meteor.Collection("history");
