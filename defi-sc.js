@@ -54,6 +54,32 @@ if (Meteor.isClient)
       event.preventDefault();
     }
   });
+  
+  Template.history.events({
+  
+    // Relancer une recherche de l'historique
+    'click .search': function(event, a, b, c)
+    {
+      // Id de la recherche dans l'historique
+      var searchId = $(event.target).data("id");
+      
+      // Lorsque le clic est fait sur un enfant de .search
+      if (!searchId)
+        searchId = $(event.target).parent().data("id");
+      
+      // Récupération des infos de la recherche
+      var search = SearchHistory.findOne({_id: searchId});
+      
+      // Mise à jour de la date
+      SearchHistory.update(searchId, {$set: {date: new Date}});
+      
+      // Enrgistrement des nouveaux mots-clés
+      Session.set('keywords', search.keywords);
+      
+      // Appel de la fonction de recherche
+      Meteor.call('search', {keywords: search.keywords});
+    }
+  });
 }
 
 // Serveur
@@ -76,6 +102,9 @@ if (Meteor.isServer)
         access_token:         userTwitterConfig.accessToken,
         access_token_secret:  userTwitterConfig.accessTokenSecret
       });
+      
+      // Suppression des anciens résultats
+      Results.remove({keywords: params.keywords});
       
       // Fonction d'ajout de résultat dans la base de données
       var addResult = Meteor.bindEnvironment(
