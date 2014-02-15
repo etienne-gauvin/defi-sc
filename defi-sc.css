@@ -1,0 +1,48 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  
+  font-family: "Droid Sans", sans-serif;
+  font-size: 18px;
+}
+
+.aside, .main {
+}
+
+.aside {
+  background-color: #222;
+  color: white;
+}
+
+.main {
+}
+
+.results .search-list {
+  padding: 0;
+  list-style: none;
+}
+
+.results .search-list .result {
+  margin: 10px 20px;
+}
+
+
+@media (min-width: 1023px)
+{
+  .aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+  }
+
+  .main {
+    margin-left: 20%;
+  }
+}
+
+/** Petits écrans **/
+@media (max-width: 1023px)
+{
+}

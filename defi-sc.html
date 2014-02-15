@@ -3,27 +3,29 @@
 </head>
 
 <body>
-  <!-- Connexion / déconnexion -->
-  <div class="connect">
-    {{loginButtons}}
-  </div>
-  
-  <!-- Zone de recherche -->
-  {{#if currentUser}}
-  <div class="search">
-    {{> search}}
-  </div>
-  {{/if}}
-  
-  <!-- Historique des recherches -->
-  <div class="history">
-    {{> history}}
-  </div>
+  <aside class="aside">
+    <!-- Connexion / déconnexion -->
+    <div class="connect">
+      {{loginButtons}}
+    </div>
+    
+    <!-- Zone de recherche -->
+    <div class="search">
+      {{> search}}
+    </div>
+    
+    <!-- Historique des recherches -->
+    <div class="history">
+      {{> history}}
+    </div>
+  </aside>
   
   <!-- Résultats de recherche -->
-  <div class="results">
-    {{> results}}
-  </div>
+  <main class="main">
+    <div class="results">
+      {{> results}}
+    </div>
+  </main>
 </body>
 
 <template name="history">
@@ -39,8 +41,8 @@
 
 <template name="search">
   <form class="search-form">
-    <input type="search" placeholder="#hashtag" autofocus required />
-    <input type="submit" value="Search" />
+    <input type="search" placeholder="#hashtag" required {{#unless currentUser}}disabled{{/unless}} />
+    <input type="submit" value="Search" {{#unless currentUser}}disabled{{/unless}} />
   </form>
 </template>
 
@@ -49,7 +51,7 @@
   <h3>Results:</h3>
   <ol class="search-list">
     {{#each resultList}}
-    <li>
+    <li class="result">
       <span class="message">{{tweet.text}}</span>
     </li>
     {{/each}}
