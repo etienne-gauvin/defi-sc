@@ -58,6 +58,12 @@
     </li>
     {{/each}}
   </ol>
+  {{else}}
+    {{#if currentUser}}
+      <h2>No current search. Use the form, or click on a previous search in the history.</h2>
+    {{else}}
+      <h2>Connect with your Twitter account to do a search.</h2>
+    {{/if}}
   {{/if}}
 </template>
 
