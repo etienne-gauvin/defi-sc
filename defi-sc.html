@@ -19,6 +19,11 @@
   <div class="history">
     {{> history}}
   </div>
+  
+  <!-- Résultats de recherche -->
+  <div class="results">
+    {{> results}}
+  </div>
 </body>
 
 <template name="history">
@@ -37,5 +42,18 @@
     <input type="search" placeholder="#hashtag" autofocus required />
     <input type="submit" value="Search" />
   </form>
+</template>
+
+<template name="results">
+  {{#if resultList}}
+  <h3>Results:</h3>
+  <ol class="search-list">
+    {{#each resultList}}
+    <li>
+      <span class="message">{{tweet.text}}</span>
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
 </template>
 
