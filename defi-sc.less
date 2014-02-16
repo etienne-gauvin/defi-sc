@@ -6,15 +6,14 @@ html, body {
   font-size: 18px;
 }
 
-.aside, .main {
-}
-
+// Barre latérale
 .aside {
   background-color: rgb(34, 34, 34);
   box-shadow: 0px 0 6px rgba(0, 0, 0, 0.4);
   color: white;
   padding: 10px 0;
-    
+  
+  // Dégradé en bas de l'historique
   .shadow-box {
     position: absolute;
     height: 10%;
@@ -24,16 +23,20 @@ html, body {
     background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0), rgb(34, 34, 34));
   }
   
+  // Zone des boutons de connexion à Twitter
   .connect {
     padding: 10px 20px;
     height: 32px;
   }
   
+  // Zone de recherche
   .search {
     
+    // Formulaire de recherche
     .search-form {
       padding: 10px 20px;
       
+      // Champ de recherche
       input[type="search"] {
         border: 0;
         padding: 4px 8px;
@@ -43,6 +46,7 @@ html, body {
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
       }
       
+      // Bouton de submit du formulaire
       input[type="submit"] {
         margin-top: 4px;
         cursor: pointer;
@@ -63,9 +67,11 @@ html, body {
     }
   }
   
+  // Zone de l'historique
   .history {
     padding: 10px 20px;
     
+    // Titre "history"
     h2 {
       font-size: 1em;
       color: rgb(135, 144, 180);
@@ -73,11 +79,13 @@ html, body {
       margin: 10px 0;
     }
     
+    // Liste des recherches dans l'historique
     .search-list {
       padding: 0;
       list-style: none;
       text-align: center;
       
+      // Recherche enregistrée dans l'historique
       .search {
         line-height: 28px;
         font-size: 18px;
@@ -85,6 +93,7 @@ html, body {
         transition: 100ms ease-in-out;
         display: block;
         
+        // Effet seulement si l'utilisateur est connecté
         &:hover:not(.disabled) {
         font-size: 1.2em;
           color: white;
@@ -95,16 +104,23 @@ html, body {
   }
 }
 
+// Zone principale
 .main {
+  
+  // Zone des résultats
   .results {
+    
+    // Titre "Results for ..."
     h2 {
       margin: 20px;
     }
     
+    // Liste des résultats
     .search-list {
       padding: 0;
       list-style: none;
       
+      // Résultats
       .result {
         margin: 10px 20px;
         padding: 10px;
@@ -115,7 +131,7 @@ html, body {
   }
 }
 
-
+// Écrans larges
 @media (min-width: 1023px)
 {
   .aside {
@@ -131,7 +147,6 @@ html, body {
   }
 }
 
-/** Petits écrans **/
-@media (max-width: 1023px)
-{
-}
+// Petits écrans
+@media (max-width: 1023px) {}
+
