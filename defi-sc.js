@@ -22,7 +22,7 @@ if (Meteor.isClient)
     return SearchHistory.find({}, {sort: {date: -1}, limit: 50});
   };
   
-  // Retourne la liste des dernières recherches
+  // Retourne les mots-clés
   Template.results.currentKeywords = function() {
     return Session.get('keywords');
   };
